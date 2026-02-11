@@ -1,0 +1,166 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Permanent+Marker&display=swap');
+
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #222;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s;
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 2rem;
+}
+
+.game__title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 4rem;
+    color: #ff7eb3;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #fff6;
+    ...existing code...
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.game__container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 120px));
+    gap: 12px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 12px;
+    margin: 1rem auto;
+    box-shadow: 0 4px 24px #0002;
+    animation: fadeInUp 1s;
+    justify-content: center;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cell {
+    font-family: 'Permanent Marker', cursive;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: rgba(255,255,255,0.35);
+    border: 2px solid #ff7eb3;
+    box-shadow: 0 2px 8px #ff7eb344;
+    font-size: 3rem;
+    color: #3ec9d6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    background: linear-gradient(135deg, #f9d423 0%, #ff7eb3 100%);
+    transform: scale(1.08) rotate(-2deg);
+    box-shadow: 0 4px 16px #ff7eb366;
+}
+
+.cell--win {
+    background: linear-gradient(135deg, #3ec9d6 0%, #ff7eb3 100%);
+    color: #fff;
+    animation: winPulse 0.7s infinite alternate;
+}
+
+@keyframes winPulse {
+    from { box-shadow: 0 0 16px #3ec9d6; }
+    to { box-shadow: 0 0 32px #ff7eb3; }
+}
+
+.game__status {
+    font-size: 2rem;
+    color: #3ec9d6;
+    margin: 1.5rem 0 1rem 0;
+    font-weight: bold;
+    text-shadow: 0 2px 8px #fff6;
+    min-height: 2.5rem;
+    transition: color 0.3s;
+}
+
+.game__restart {
+    background: linear-gradient(90deg, #ff7eb3 0%, #f9d423 100%);
+    border: none;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #ff7eb344;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 1rem;
+}
+
+.game__restart:hover {
+    background: linear-gradient(90deg, #f9d423 0%, #ff7eb3 100%);
+    transform: translateY(-3px) scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .game__title { font-size: 2.2rem; }
+    .game__container { grid-template-columns: repeat(3, minmax(60px, 1fr)); }
+    .cell { font-size: 2rem; }
+    .glass { padding: 1rem; }
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Enhanced Moon Icon Styles */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    outline: none;
+    transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+}
+#theme-toggle:active {
+    transform: scale(1.1) rotate(-15deg);
+}
+#moon-icon {
+    width: 44px !important;
+    height: 44px !important;
+    filter: drop-shadow(0 0 16px #FFD700) drop-shadow(0 0 8px #fff);
+    transition: filter 0.3s, transform 0.3s;
+    stroke: #FFD700;
+    stroke-width: 2.5;
+    background: radial-gradient(circle at 60% 40%, #FFD700 60%, #fff70033 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 24px 8px #FFD70099, 0 0 8px 2px #fff;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic-Tac-Toe Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <main class="game glass">
+        <header>
+            <h1 class="game__title">Tic-Tac-Toe <span style="font-size:2rem;">✨</span></h1>
+        </header>
+        <section class="game__board">
+            <div class="game__container" role="grid" aria-label="Tic Tac Toe Board">
+                <div class="cell" data-cell-index="0" role="gridcell" aria-label="Cell 1"></div>
+                <div class="cell" data-cell-index="1" role="gridcell" aria-label="Cell 2"></div>
+                <div class="cell" data-cell-index="2" role="gridcell" aria-label="Cell 3"></div>
+                <div class="cell" data-cell-index="3" role="gridcell" aria-label="Cell 4"></div>
+                <div class="cell" data-cell-index="4" role="gridcell" aria-label="Cell 5"></div>
+                <div class="cell" data-cell-index="5" role="gridcell" aria-label="Cell 6"></div>
+                <div class="cell" data-cell-index="6" role="gridcell" aria-label="Cell 7"></div>
+                <div class="cell" data-cell-index="7" role="gridcell" aria-label="Cell 8"></div>
+                <div class="cell" data-cell-index="8" role="gridcell" aria-label="Cell 9"></div>
+            </div>
+        </section>
+        <section class="game__controls">
+            <h2 class="game__status" aria-live="polite"></h2>
+            <button class="game__restart" type="button">Restart Game</button>
+        </section>
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" style="background: none; border: none; cursor: pointer; position: absolute; top: 20px; right: 20px; z-index: 1000;">
+            <svg id="moon-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 16C22 22.0751 16.0751 28 10 28C8.34315 28 7 26.6569 7 25C7 18.9249 12.9249 13 19 13C20.6569 13 22 14.3431 22 16Z" fill="#FFD700"/>
+            </svg>
+        </button>
+    </main>
+    <canvas class="confetti" id="confetti"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
